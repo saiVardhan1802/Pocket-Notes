@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./CreateGroup.css"
 import Color from "./Color";
 
 export default function CreateGroup( {onSubmit} ) {
@@ -30,24 +31,72 @@ export default function CreateGroup( {onSubmit} ) {
         setSelectedColor(null);
     }
     return (
-        <div style={{
-            width: '50vw',
+        <div className="container" style={{
+            //width: '50vw',
             height: '33vh',
             background: 'white',
             zIndex: '1000',
             position: 'fixed',
-            bottom: '33vh',
-            left: '25vw'
+            // bottom: '33vh',
+            // left: '25vw'
         }}>
-            <form onSubmit={handleSubmit}>
-                <p>Create New Group</p>
-                <div className="group-name" style={{display: 'flex'}}>
-                    <p>Group Name</p>
-                    <input type= "text" placeholder="Enter group name" value={groupName} onChange={(e) => setGroupName(e.target.value)}></input>
+            <form onSubmit={handleSubmit} style={{
+                width: '100%',
+                position: 'relative',
+                left: '2.5vw',
+                top: '3vh'
+            }}>
+                <p style={{
+                    fontFamily: 'Roboto',
+                    fontSize: '2rem',
+                    fontWeight: '500',
+                    lineHeight: '3rem',
+                    letterSpacing: '0.035em'
+                }}>Create New Group</p>
+                <div className="group-name" style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '2vw',
+                    marginTop: '2vh'}}>
+                    <p style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: '500',
+                        fontSize: '1.75rem',
+                        lineHeight: '2.75rem',
+                        letterSpacing: '0.035em'
+                    }}>Group Name</p>
+                    <div className="input-div" style={{
+                        //width: '50%',
+                        height: '4vh',
+                    }}>
+                        <input type= "text" placeholder="Enter group name" value={groupName} onChange={(e) => setGroupName(e.target.value)}
+                            style={{
+                                width: '100%',
+                                height: '100%',
+                                borderRadius: '4rem',
+                                padding: '1.3rem',
+                                fontSize: '1.3rem',
+                                fontFamily: 'Roboto'
+                            }}
+                        ></input>
+                    </div>
                 </div>
-                <div style={{display: 'flex'}}>
-                    <p>Choose Color</p>
-                    <div style={{display: 'flex'}}>
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '2vw',
+                    marginTop: '3vh'}}>
+                    <p style={{
+                        fontFamily: 'Roboto',
+                        fontWeight: '500',
+                        fontSize: '1.75rem',
+                        lineHeight: '2.75rem',
+                        letterSpacing: '0.035em'
+                    }}>Choose Color</p>
+                    <div style={{
+                        display: 'flex',
+                        gap: '2vw'}}>
                         {colors.map((color, index) => (
                             <Color key={index} 
                             style={{
@@ -59,8 +108,21 @@ export default function CreateGroup( {onSubmit} ) {
                         ))}
                     </div>
                 </div>
-                <button style={{
-                        textAlign: 'center'
+                <button className="button" style={{
+                        textAlign: 'center',
+                        // float: 'right',
+                        // position: 'relative',
+                        // right: '5vw',
+                        // top: '4vh',
+                        background: '#001F8B',
+                        color: 'white',
+                        fontFamily: 'Roboto',
+                        fontWeight: '400',
+                        // width: '8vw',
+                        // height: '4vh',
+                        borderRadius: '0.75rem',
+                        border: 'none',
+                        fontSize: '1.3rem'
                     }}
                     type="submit">Create</button>
             </form>

@@ -8,6 +8,32 @@
     z-index: 999; /* Ensure it's above everything else */
 }
 
-.no-scroll {
-    overflow: hidden;
-  }
+@media (min-width: 1921px) and (max-width: 2561px) {
+    html {
+        font-size: 22px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+    html {
+        font-size: 12px;
+    }
+}

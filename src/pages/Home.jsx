@@ -1,5 +1,6 @@
 import Title from "../components/Title";
 import './Home.css';
+import './MobileView.css'
 import { useEffect, useState } from "react";
 import CreateGroup from "../components/CreateGroup";
 import Group from "../components/Group";
@@ -57,15 +58,11 @@ export default function Home() {
 
         addNoteToGroup(selectedGroup.groupName, text);
         
-        setText("")
+        setText("");
+        localStorage.setItem("text", "");
     }
 
     const togglePopup = () => {
-        if (isPopupVisible === true) {
-          document.body.classList.add("no-scroll");
-        } else {
-          document.body.classList.remove("no-scroll");
-        }
         setIsPopupVisible(!isPopupVisible);
       };
 
@@ -79,11 +76,10 @@ export default function Home() {
                 display: 'flex',
                 width: '100vw'
             }}>
-                <div style={{
-                    width: '25vw',
+                <div className={`home ${selectedGroup ? 'none' : ''}`} style={{
+                    
                     height: '100vh',
-                    background: 'white',
-                    overflowY: 'auto'
+                    background: 'white'
                 }}>
                     <Title style={{
                         letterSpacing: '0.02em',
@@ -91,17 +87,31 @@ export default function Home() {
                         fontWeight: '500',
                         textAlign: 'center',
                         position: 'sticky',
-                        top: '5vh'
-                    }} />
+                        top: '5vh',
+                        cursor: 'pointer'
+                    }} 
+                        onClick={() => {
+                            setSelectedGroup(null);
+                            localStorage.setItem('selected-group', null);
+                        }}
+                    />
 
-                    {groups.map((group, index) => (
-                        <Group key={index} style={{backgroundColor: selectedGroup?.groupName === group.groupName? 'rgba(0, 0, 0, 0.171)' :group.color}}
-                        groupName={getTrimmedName(group.groupName)}
-                        initials = {getInitials(group.groupName)}
-                        onClick={() => {setSelectedGroup(group); localStorage.setItem('selected-group', JSON.stringify(group))}} />
-                    ))}
+                    <div className="groups" style={{
+                        position: 'relative',
+                        // top: '10vh',
+                        height: '84.9vh',
+                        overflowY: 'auto'
+                    }}>
+                        {groups.map((group, index) => (
+                            <Group key={index} boxStyle={{backgroundColor: selectedGroup?.groupName === group.groupName? 'rgba(0, 0, 0, 0.171)' : 'white'}}
+                            circleStyle={{backgroundColor: group.color}}
+                            groupName={getTrimmedName(group.groupName)}
+                            initials = {getInitials(group.groupName)}
+                            onClick={() => {setSelectedGroup(group); localStorage.setItem('selected-group', JSON.stringify(group))}} />
+                        ))}
+                    </div>
 
-                    <div onClick={togglePopup} style={{
+                    <div className="add-btn" onClick={togglePopup} style={{
                         borderRadius: '50%',
                         width: '5.5rem',
                         height: '5.5rem',
@@ -110,15 +120,21 @@ export default function Home() {
                         background: 'rgba(22, 0, 139, 1)',
                         fontSize: '4.5rem',
                         position: 'sticky',
-                        left: '18vw',
-                        top: '87vh'
-                    }}><p style={{textAlign: 'center'}}>+</p></div>
+                        // left: '18vw',
+                        // bottom: '1vh',
+                    }}><p style={{
+                        textAlign: 'center'
+                        }}>+</p></div>
                 </div>
 
                 {selectedGroup? <TextViewer
+                    circleColor={{backgroundColor: selectedGroup.color}}
+                    initials={getInitials(selectedGroup.groupName)}
+                    groupName = {getTrimmedName(selectedGroup.groupName)}
                     selectedGroup={selectedGroup}
                     onSubmit={handleNoteSubmit}
-                    onChange={(e) => {setText(e.target.value); localStorage.setItem('text', e.target.value)}} value={text}
+                    onChange={(e) => {setText(e.target.value); localStorage.setItem('text', e.target.value)}} value={text || ""}
+                    buttonStyle={{color: text?.trim() !== "" ? "#001F8B" : "#ABABAB"}}
                 /> : <Empty /> }
                 
                 

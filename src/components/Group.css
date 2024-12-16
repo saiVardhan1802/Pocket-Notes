@@ -1,0 +1,21 @@
+@media (max-width: 800px) {
+    .inner-box {
+        gap: 5vw
+    }
+
+    .inner-box div {
+        height: 4.5rem;
+        width: 4.5rem
+    }
+}
+
+@media (min-width: 801px) {
+    .inner-box {
+        gap: 1.2vw
+    }
+
+    .inner-box div {
+        height: 3.5rem;
+        width: 3.5rem
+    }
+}

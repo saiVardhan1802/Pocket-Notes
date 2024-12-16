@@ -1,7 +1,8 @@
+import './Title.css'
 
 export default function Title(props) {
     return (
-        <p style={{
+        <p className='title' onClick={props.onClick} style={{
             fontFamily: "'Roboto', sans-serif",
             
             ...props.style

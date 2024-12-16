@@ -1,0 +1,20 @@
+@media (min-width: 320px) and (max-width: 374px) {
+    .color {
+        width: 1.65rem;
+        height: 1.65rem;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 425px) {
+    .color {
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+@media (min-width: 801px) {
+    .color {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}

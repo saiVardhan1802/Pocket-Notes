@@ -1,0 +1,28 @@
+@media (max-width: 800px) {
+    .outer-box {
+        width: 100vw;
+        height: 17vh;
+    }
+
+    .outer-box form button {
+        position: absolute;
+        left: 80vw;
+        top: 9vh;
+        height: 3vh;
+        width: 10vw;
+    }
+}
+
+@media (min-width: 801px) {
+    .outer-box {
+        width: 75vw;
+        height: 25vh;
+    }
+
+    .outer-box form button {
+        position: relative;
+        bottom: 7vh;
+        right: 1vw;
+    }
+}
+

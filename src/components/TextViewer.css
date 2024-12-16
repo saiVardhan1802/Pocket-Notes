@@ -1,0 +1,21 @@
+@media (max-width: 800px) {
+    .parent {
+        width: 100vw;
+    }
+
+    .calc {
+        height: calc(100vh - 27vh);
+        gap: 1vh;
+    }
+}
+
+@media (min-width: 801px) {
+    .parent {
+        width: 75vw;
+    }
+
+    .calc {
+        height: calc(100vh - 35vh);
+    }
+}
+

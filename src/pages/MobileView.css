@@ -1,0 +1,42 @@
+@media (max-width: 800px) {
+    .home  { 
+        width: 100vw;
+        padding-left: 7vw;
+    }
+
+    .groups {
+        float: left;
+        top: 8vh;
+    }
+
+    .add-btn {
+        left: 75vw;
+        top: 90vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .add-btn p {
+        position: absolute;
+    }
+
+    .none {
+        display: none;
+    }
+}
+
+@media (min-width: 801px) {
+    .home {
+        width: 25vw;
+    }
+
+    .groups {
+        position: relative;
+        top: 8vh;
+    }
+
+    .add-btn {
+        left: 18vw;
+        bottom: 1vh;
+    }
+}

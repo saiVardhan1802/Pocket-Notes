@@ -1,0 +1,41 @@
+@media (max-width: 800px) {
+    .container {
+        width: 90vw;
+        bottom: 33vh;
+        left: 5vw;
+    }
+
+    .input-div {
+        width: 50%;
+    }
+
+    button {
+        position: relative;
+        left: 6vw;
+        top: 4vh;
+        width: 80%;
+        height: 4vh
+    }
+}
+
+@media (min-width: 801px) {
+    .container {
+        width: 50vw;
+        bottom: 33vh;
+        left: 25vw;
+    }
+
+    .input-div {
+        width: 66%;
+    }
+
+    .button {
+        float: right;
+        position: relative;
+        right: 5vw;
+        top: 4vh;
+        width: 8vw;
+        height: 4vh
+    }
+}
+

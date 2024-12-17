@@ -1,6 +1,14 @@
 import "./CreateNote.css"
 
 export default function CreateNote(props) {
+
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault(); // Prevent newline in textarea
+            props.onSubmit(e); // Trigger the submit handler
+        }
+    };
+
     return (
         <div className="outer-box" style={{
             //width: '75vw',
@@ -17,7 +25,7 @@ export default function CreateNote(props) {
                 left: '3.7%',
                 top: '10%',            
             }}>
-                <textarea value={props.value} onChange={props.onChange} placeholder="Enter your text here.........." style={{
+                <textarea onKeyDown={handleKeyDown} value={props.value} onChange={props.onChange} placeholder="Enter your text here.........." style={{
                    width: '100%',
                    height: '100%',
                    fontSize: '1.2rem',

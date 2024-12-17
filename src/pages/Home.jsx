@@ -44,6 +44,7 @@ export default function Home() {
             
             const updatedSelectedGroup = updatedGroups.find(group => group.groupName === groupName);
             setSelectedGroup(updatedSelectedGroup);  // Update the selectedGroup state
+            localStorage.setItem('selected-group', JSON.stringify(updatedSelectedGroup));
 
             return updatedGroups;
         });
@@ -56,6 +57,7 @@ export default function Home() {
     function handleNoteSubmit(e) {
         e.preventDefault();
 
+        if (text.trim() === "") return;
         addNoteToGroup(selectedGroup.groupName, text);
         
         setText("");

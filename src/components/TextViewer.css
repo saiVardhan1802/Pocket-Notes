@@ -17,5 +17,9 @@
     .calc {
         height: calc(100vh - 35vh);
     }
+
+    .fas {
+        display: none;
+    }
 }
 

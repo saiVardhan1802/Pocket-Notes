@@ -22,6 +22,12 @@ export default function TextViewer(props) {
                 alignItems: 'center',
                 zIndex: '2'
             }}>
+                <i className="fas fa-arrow-left" style={{
+                     fontSize: "3rem", 
+                     color: "white", 
+                     marginLeft: '3vw',
+                     marginRight: '2vw'}}
+                     onClick={props.backClick}></i>
                 <div style={{
                     ...props.circleColor,
                     height: '4.5rem',

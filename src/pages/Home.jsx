@@ -128,6 +128,10 @@ export default function Home() {
                 </div>
 
                 {selectedGroup? <TextViewer
+                    backClick={() => {
+                        setSelectedGroup(null);
+                        localStorage.setItem('selected-group', null)
+                    }}
                     circleColor={{backgroundColor: selectedGroup.color}}
                     initials={getInitials(selectedGroup.groupName)}
                     groupName = {getTrimmedName(selectedGroup.groupName)}
@@ -140,7 +144,7 @@ export default function Home() {
                 
                 {isPopupVisible && <div className="overlay" onClick={togglePopup}></div>}
             </div>
-        {isPopupVisible && <CreateGroup onSubmit={handleNoteCreation} />}
+        {isPopupVisible && <CreateGroup onSubmit={handleNoteCreation} groups={groups}/>}
         </div>
     )
 }

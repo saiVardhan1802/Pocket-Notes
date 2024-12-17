@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./CreateGroup.css"
 import Color from "./Color";
 
-export default function CreateGroup( {onSubmit} ) {
+export default function CreateGroup( {onSubmit, groups} ) {
     const colors = [
         'rgba(179, 139, 250, 1)',
         'rgba(255, 121, 242, 1)',
@@ -21,6 +21,15 @@ export default function CreateGroup( {onSubmit} ) {
         e.preventDefault();
         if (!groupName.trim() || !selectedColor) {
             alert("Please fill in all fields!");
+            return;
+        }
+
+        const groupExists = groups.some(
+            (group) => group.groupName.toLowerCase() === getTrimmedName(groupName).toLowerCase()
+        );
+
+        if (groupExists) {
+            alert("Group name already exists!");
             return;
         }
 
@@ -128,4 +137,10 @@ export default function CreateGroup( {onSubmit} ) {
             </form>
         </div>
     )
+}
+
+function getTrimmedName(name) {
+    const trimmedName = name.trim(); // Remove leading and trailing spaces
+    const normalizedName = trimmedName.replace(/\s+/g, ' ');
+    return normalizedName;
 }

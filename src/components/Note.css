@@ -1,0 +1,22 @@
+@media (max-width: 800px) {
+    .margin {
+        margin: 2vh 5vw
+    }
+
+    .date {
+        margin: 1vh 5vw 1vh auto;
+        gap: 2vw;
+    }
+}
+
+@media (min-width: 801px) {
+    .margin {
+        margin: 2vh 1.5vw;
+    }
+
+    .date {
+        margin: 1vh 1vw 1vh auto;
+        gap: 0.9vw
+    }
+}
+

@@ -1,3 +1,5 @@
+import "./Note.css"
+
 export default function Note(props) {
     const date = new Date(props.createdAt);
 
@@ -27,22 +29,23 @@ export default function Note(props) {
             zIndex: '1',
             fontSize: '1.15rem',
             borderRadius: '0.3rem',
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+            //boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)'
+            boxShadow: '0px 4px 20px 0px #00000040',
         }}>
             <div>
-                <p style={{
+                <p className="margin" style={{
                     fontFamily: 'Roboto',
                     fontWeight: '400',
                     letterSpacing: '0.035em',
                     lineHeight: '2rem',
-                    margin: '2vh 1.5vw'
+                    //margin: '2vh 1.5vw'
                 }}>{props.content}</p>
 
-                <div style={{
+                <div className="date" style={{
                     display: 'flex',
-                    gap: '0.9vw',
+                    //gap: '0.9vw',
                     float: 'right',
-                    margin: '1vh 1vw 1vh auto',
+                    //margin: '1vh 1vw 1vh auto',
                     fontWeight: '500',
                     fontFamily: 'Roboto',
                     alignItems: 'center'
